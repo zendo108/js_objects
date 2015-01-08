@@ -6,30 +6,23 @@ and open the template in the editor.
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <script src="js/libs/angular.js/angular.js"></script>
         <title>Angular Form</title>
     </head>
     <body>
-        <div data-ng-app="gasInspections" data-ng-controller="unitController">
+        <div data-ng-app="gasInspections" data-ng-controller="unitController" class="container">
         <form novalidate>
             Unidad:<br>
-            <input type="tel" data-ng-model="unit.number"><br>
-            Test select:<br>
-            <select data-ng-model="unit.test">
-                <option value="1">first</option>
-                <option value="2">second</option>
-                <option value="3">third</option>
-            </select>
+            <input class="form-control" type="tel" data-ng-model="unit.number"><br>
             Tipo de Unidad:<br>
-            <select data-ng-model="unit.unitTypes" ng-options="u.value as u.name  for u in unitTypes">
-                
+            <select class="form-control" data-ng-model="unit.unitTypes" ng-options="u.value as u.name  for u in unitTypes">
             </select>
             <br />Tipo de Gas:<br>
-            <select data-ng-model="unit.gasTypes" ng-options="g.value as g.name for g in gasTypes">
-                
+            <select class="form-control" data-ng-model="unit.gasTypes" ng-options="g.value as g.name for g in gasTypes">
             </select>
             <br><br>
-            <button data-ng-click="reset()">RESET</button>
+            <button class="btn btn-success" data-ng-click="reset()"><span class="glyphicon glyphicon-user"></span>RESET</button>
         </form>
         <p>unit = {{unit | json}}</p>
         <p>master = {{master}}</p>
@@ -63,10 +56,6 @@ and open the template in the editor.
                                     {name:'otro', value:100}
                                 ];
                 $scope.unit.gasTypes = $scope.gasTypes[1].value;
-                $scope.unit.test = 2;
-                $scope.toObject = function(string){
-                    JSON.parse(string);
-                }
 //                alert($scope.gasTypes[1].name);
                 unit = $scope.unit;
             });
